@@ -69,9 +69,11 @@ class HashTable{
 
 let Hash=new HashTable(20)
 
-Hash.set("name","udayan")
+Hash.set("name","ajmal")
 Hash.set("mane","who")
 Hash.remove("mane")
 Hash.set("age",20)
+console.log(Hash.get("age"));
+
 
 Hash.display()
