@@ -19,7 +19,7 @@ function mergeSort(arr) {
 
 function merge(left, right) {
   let sortArr = [];
-
+    
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
       sortArr.push(left.shift());

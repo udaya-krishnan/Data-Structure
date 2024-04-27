@@ -10,7 +10,7 @@ class HashTable{
             total+=key.charCodeAt(i)
         }
         return total%this.size
-    }
+    }   
 
     set(key,value){
 
