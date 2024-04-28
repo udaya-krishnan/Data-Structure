@@ -19,7 +19,7 @@ class HashTable{
         let bucket=this.table[index]
 
         if(!bucket){
-            this.table[index]=[[key,value]]
+            this.table[index]=[[key,value]]   
 
         }else{
             let sameitem=bucket.find(item=>item[0]===key)
