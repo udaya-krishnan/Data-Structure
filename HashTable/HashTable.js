@@ -77,3 +77,4 @@ console.log(Hash.get("age"));
 
 
 Hash.display()
+
