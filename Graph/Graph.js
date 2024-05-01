@@ -48,6 +48,14 @@ class Graph{
             console.log(vertex+"->"+[...this.adjacencyList[vertex]])
          }
     }
+
+    countEdge(){
+        let count=0
+        for(let vertex in this.adjacencyList){
+            count+=this.adjacencyList[vertex].size
+        }
+        return count/2
+    }
 }
 
 const graph=new Graph()
@@ -65,8 +73,9 @@ graph.display()
 
 console.log(graph.hasEdge("A","C"))
 
-graph.removeEdge("A","B")
-console.log(graph.deleteVertex("B"))
+// graph.removeEdge("A","B")
+// console.log(graph.deleteVertex("B"))
 
+console.log(graph.countEdge())
 
 graph.display()
