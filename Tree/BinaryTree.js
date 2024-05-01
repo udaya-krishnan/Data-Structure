@@ -115,36 +115,34 @@ class BinarySearchTree{
         }
     }
 
-    delete(value){
-        this.root=this.deleteValue(this.root,value)
-    }
+   dalete(value){
+    this.root=this.daleteValue(this.root,value)
+   }
 
-    deleteValue(root,value){
-        if(root===null){
-            return null
-        }
-        if(value<root.value){
-            root.left=this.deleteValue(root.left,value)
-        }else if(value>root.value){
-            root.right=this.deleteValue(root.right,value)
-        }else{
-
-            if(!root.left&&!root.right){
-                return null
-            }
-
-            if(!root.left){
-                return root.right
-            }else if(!root.right){
-                return root.left
-            }
-            root.value=this.min(root.right)
-
-            root.right=this.deleteValue(root.right,root.value)
-        }
+   daleteValue(root,value){
+    if(!root){
         return root
     }
+    if(root.value>value){
+        root.left=this.daleteValue(root.left,value)
+    }else if(root.value<value){
+        root.right=this.daleteValue(root.right,value)
+    }else{
+        if(!root.left&&!root.right){
+            return null
+        }
+        if(!root.left){
+            return root.right
+        }else if(!root.right){
+            return root.left
+        }
+        root.value=this.min(root.right)
+        root.right=this.daleteValue(root.right,root.value)
+    }
 
+    return root
+
+   }
 }
 
 
@@ -174,3 +172,8 @@ console.log("level Order")
 bst.levelOrder()
 console.log("Minimum value",bst.min(bst.root))
 console.log("Maximum value",bst.max(bst.root))
+
+
+bst.dalete(3)
+console.log("level");
+bst.levelOrder()
