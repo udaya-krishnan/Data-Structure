@@ -97,15 +97,12 @@ class MaxHeap{
    }
 
    heapSort(){
-    let arr=[]
-    while(this.heap.length>0){
-        arr.push(this.removeMax())
-    }
-    this.heap=arr
-
-    return arr;
-
-
+   let arr=[]
+   while(this.heap.length>0){
+    arr.push(this.removeMax())
+   }
+   return arr
+    
    }
 }
 
@@ -122,4 +119,5 @@ heap.insert(9)
 // heap.removeMax()
 heap.display()
 
-console.log(heap.heapSort())
+
+console.log(heap.heapSort());
