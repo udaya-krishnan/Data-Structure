@@ -139,22 +139,29 @@ class BinarySearchTree{
         root.value=this.min(root.right)
         root.right=this.daleteValue(root.right,root.value)
     }
-
+    
     return root
 
    }
-}
 
+   
+}
 
 
 const bst=new BinarySearchTree()
 
+bst.insert(8)
+bst.insert(3)   
 bst.insert(10)
-bst.insert(5)
-bst.insert(15)
-bst.insert(3)
+bst.insert(1)
+bst.insert(6)
+bst.insert(14)
+bst.insert(4)
+
 bst.insert(7)
-console.log(bst.search(bst.root,15))
+bst.insert(13)
+
+// console.log(bst.search(bst.root,15))
 
 bst.preOrder(bst.root)
 
@@ -170,10 +177,12 @@ bst.postOrder(bst.root)
 console.log("level Order")
 
 bst.levelOrder()
-console.log("Minimum value",bst.min(bst.root))
-console.log("Maximum value",bst.max(bst.root))
+// console.log("Minimum value",bst.min(bst.root))
+// console.log("Maximum value",bst.max(bst.root))
 
 
-bst.dalete(3)
-console.log("level");
-bst.levelOrder()
+// bst.dalete(3)
+// console.log("level");
+// bst.levelOrder()
+
+console.log("closest value",bst.closeestValue(9));

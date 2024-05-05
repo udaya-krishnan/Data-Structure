@@ -56,26 +56,66 @@ class Graph{
         }
         return count/2
     }
+
+    searchVertex(vartex){
+        if(this.adjacencyList[vartex]){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    BFS(start){
+        if(this.searchVertex(start)===false){
+            return null
+        }else{
+            let visited={}
+            let queue=[]
+            queue.push(start)
+
+            while(queue.length!==0){
+                let currentVertex=queue.shift()
+                if(!visited[currentVertex]){
+                    visited[currentVertex]=true
+                    console.log(currentVertex)
+
+                    for(let vertex of this.adjacencyList[currentVertex]){
+                        if(!visited[vertex]){
+                            queue.push(vertex)
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+   
 }
 
 const graph=new Graph()
 
-graph.addVertix("A")
-graph.addVertix("B")
-graph.addVertix("C")
+graph.addVertix(1)
+graph.addVertix(2)
+graph.addVertix(4)
+graph.addVertix(3)
 
-graph.addEdge("A","B")
+graph.addEdge(1,3)
 
-graph.addEdge("B","C")
+graph.addEdge(2,4)
+graph.addEdge(2,1)
+graph.addEdge(1,4)
 
-graph.display()
+// graph.display()
 
 
-console.log(graph.hasEdge("A","C"))
+// console.log(graph.hasEdge("A","C"))
 
 // graph.removeEdge("A","B")
 // console.log(graph.deleteVertex("B"))
 
-console.log(graph.countEdge())
+// console.log(graph.countEdge())
 
 graph.display()
+
+graph.BFS(2)

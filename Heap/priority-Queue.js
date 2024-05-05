@@ -48,7 +48,7 @@ class Heap{
         if(this.heap.length===1){
             return this.heap.pop()
         }else{
-            let priorityValue=this.heap[0].value
+            let priorityValue=this.heap[0]
                 this.heap[0]=this.heap.pop()
             this.heapifyDown()
                 return priorityValue
@@ -78,6 +78,19 @@ class Heap{
 
         
     }
+
+    prioritySort(){
+        let arr=[]
+        while(this.heap.length){
+            arr.push(this.remove())
+        }
+
+        this.heap=arr
+
+        return arr;
+    }
+
+
     display(){
         console.log(this.heap);
     }
@@ -90,5 +103,7 @@ heap.insert("B",8)
 heap.insert("C",2)
 heap.insert("D",0)
 heap.insert("E",10)
+
+console.log(heap.prioritySort());
 
 heap.display()

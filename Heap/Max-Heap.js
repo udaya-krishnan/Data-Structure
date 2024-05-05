@@ -15,6 +15,30 @@ class MaxHeap{
     return 2*index+2
    }
 
+   maxHight(){
+    return this.calculateHight(0)
+   }
+
+   minHight(){
+    return this.calculateHight(0)
+   }
+
+   calculateHight(index){
+    if(index>=this.heap.length||this.heap[index]===undefined){
+        return 0;
+    }
+
+    const leftChildIndex=this.getleftChildIndex(index)
+    const rightChildIndex=this.getleftChildIndex(index)
+
+    const leftHight=this.calculateHight(leftChildIndex)
+    const rightHight=this.calculateHight(rightChildIndex)
+
+      return 1+Math.max(leftHight,rightHight)
+    }
+   
+
+
    swap(index1,index2){
     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
    }
@@ -51,7 +75,6 @@ class MaxHeap{
         this.heapifyDown()
         return max
     }
-    
    }
 
    heapifyDown(){
@@ -97,10 +120,11 @@ class MaxHeap{
    }
 
    heapSort(){
-   let arr=[]
-   while(this.heap.length>0){
-    arr.push(this.removeMax())
-   }
+    let arr=[]
+    while(this.heap.length>0){
+     arr.push(this.removeMax())
+    }
+    this.heap=arr
    return arr
     
    }
@@ -110,14 +134,18 @@ class MaxHeap{
 
 const heap=new MaxHeap()
 
-heap.insert(5)
-heap.insert(50)
-heap.insert(1)
-heap.insert(13)
-heap.insert(14)
-heap.insert(9)
+heap.insert(5);
+heap.insert(50);
+heap.insert(1);
+heap.insert(13);
+heap.insert(14);
+heap.insert(9);
 // heap.removeMax()
 heap.display()
 
+console.log(heap.minHight())
+console.log(heap.maxHight())
 
-console.log(heap.heapSort());
+
+
+// console.log(heap.heapSort());
